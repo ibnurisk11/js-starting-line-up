@@ -1,0 +1,379 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.team-sheet {
+    background-color: #0a0a0a;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.team-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 2px solid #333;
+    margin-bottom: 15px;
+}
+
+.team-name {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.second-team .team-name {
+    color: #d62d42; /* PSG red */
+}
+
+.manager {
+    font-size: 18px;
+    color: #aaa;
+}
+
+.formation {
+    font-size: 24px;
+    text-align: center;
+    margin: 15px 0;
+    color: #4CAF50;
+}
+
+.players-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.starting-xi {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+}
+
+.substitutes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px dashed #333;
+}
+
+.player-card {
+    width: calc(16.666% - 10px);
+    background-color: #222;
+    border-radius: 5px;
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.player-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background-color: #4CAF50;
+}
+
+.substitute-card {
+    width: calc(8.333% - 10px);
+    background-color: #222;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 12px;
+    position: relative;
+}
+
+.substitute-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background-color: #f39c12;
+}
+
+.player-name {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.player-rating {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.player-position {
+    font-size: 12px;
+    color: #aaa;
+    text-transform: uppercase;
+}
+
+.player-image {
+    width: 100%;
+    height: 80px;
+    background-color: #333;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 12px;
+}
+
+@media (max-width: 768px) {
+    .player-card {
+        width: calc(33.333% - 10px);
+    }
+    
+    .substitute-card {
+        width: calc(25% - 10px);
+    }
+}
+
+@media (max-width: 480px) {
+    .player-card {
+        width: calc(50% - 10px);
+    }
+    
+    .substitute-card {
+        width: calc(33.333% - 10px);
+    }
+}
+
+/* Previous styles remain the same, add these new styles */
+
+/* Controls */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #222;
+    border-radius: 5px;
+}
+
+.controls button {
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.controls button:hover {
+    background-color: #45a049;
+}
+
+.match-info {
+    display: flex;
+    gap: 20px;
+}
+
+.formation-display, .substitution-counter {
+    padding: 8px 15px;
+    background-color: #333;
+    border-radius: 4px;
+}
+
+/* Formation Selector */
+.formation-selector {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.formation-selector select {
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #333;
+    color: white;
+    border: 1px solid #4CAF50;
+}
+
+/* Football Pitch */
+.pitch-container {
+    margin: 20px 0;
+}
+
+.football-pitch {
+    width: 100%;
+    height: 400px;
+    background-color: #2a5c2a;
+    background-image: 
+        linear-gradient(white 1px, transparent 1px),
+        linear-gradient(90deg, white 1px, transparent 1px);
+    background-size: 40px 40px;
+    border-radius: 10px;
+    position: relative;
+    border: 4px solid white;
+    margin-bottom: 20px;
+}
+
+/* Player on Pitch */
+.player-on-pitch {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 10px;
+    cursor: move;
+    z-index: 10;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.player-on-pitch:hover {
+    transform: scale(1.1);
+    border-color: #4CAF50;
+}
+
+.player-on-pitch .player-rating {
+    font-size: 12px;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+/* Draggable and substitution styles */
+.player-card.dragging {
+    opacity: 0.5;
+    border: 2px dashed #4CAF50;
+}
+
+.substitute-card.highlighted {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.player-card.substituted {
+    opacity: 0.5;
+    background-color: #333;
+}
+
+.player-card.substituted::before {
+    background-color: #f39c12;
+}
+
+/* Substitutes container */
+.substitutes-container {
+    margin-top: 20px;
+}
+
+.substitutes-container h3 {
+    margin-bottom: 10px;
+    color: #aaa;
+    font-size: 16px;
+}
+
+/* Modal */
+.substitution-modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: #222;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: #aaa;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-content h2 {
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    margin-bottom: 20px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-buttons button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#confirm-sub {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#cancel-sub {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .match-info {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .football-pitch {
+        height: 300px;
+    }
+}
